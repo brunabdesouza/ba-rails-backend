@@ -6,18 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
-print "Creating airplanes..."
-
-Airplane.destroy_all
-
-airplane1 = Airplane.create! name:'A380', row: 1, column:'A'
-airplane2 = Airplane.create! name:'737', row: 2, column: 'B'
-airplane3 = Airplane.create! name:'747-8', row: 3, column: 'C'
-airplane4 = Airplane.create! name:'777', row: 4, column: 'D'
-
-puts "created #{Airplane.count} airplanes."
-
 print "Creating flights..."
 
 Flight.destroy_all
@@ -28,6 +16,18 @@ flight3 = Flight.create! number: 45, origin: 'Melbourne', destination: 'Tasmania
 flight4 = Flight.create! number: 27, origin: 'Tasmania', destination: 'Sydney'
 
 puts "created #{Flight.count} flights."
+
+print "Creating airplanes..."
+
+Airplane.destroy_all
+
+airplane1 = Airplane.create! name:'A380', row: '1', column:'A'
+airplane2 = Airplane.create! name:'737', row: '2', column: 'B'
+airplane3 = Airplane.create! name:'747-8', row: '3', column: 'C'
+airplane4 = Airplane.create! name:'777', row: '4', column: 'D'
+
+puts "created #{Airplane.count} airplanes."
+
 
 airplane1.flights << flight1
 airplane2.flights << flight2
@@ -48,6 +48,11 @@ user1 = User.create! name: 'Zara', email: 'zara@burned.com'
 
 puts "Created #{User.count} users."
 
+flight1.users << user1
+flight2.users << user2
+flight3.users << user3
+flight4.users << user4
+
 
 print "Creating reservations... "
 
@@ -63,8 +68,3 @@ user1.reservations << reservation1
 user2.reservations << reservation2
 user3.reservations << reservation3
 user4.reservations << reservation4
-
-flight1.users << user1
-flight2.users << user2
-flight3.users << user3
-flight4.users << user4
