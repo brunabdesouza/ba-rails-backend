@@ -15,15 +15,22 @@ class FlightsController < ApplicationController
   end
 
   def show
+    response = Flight.find params[:id]
+
+    render json: response
   end
 
   def edit
+    # Do we need this for a react frontend
   end
 
   def update
+    flight = Flight.find params[:id]
+    flight.update flight_params[:id]
   end
 
   def destroy
+    Flight.destroy params[:id]
   end
 
   private
