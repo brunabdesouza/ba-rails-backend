@@ -4,20 +4,20 @@ class UsersController < ApplicationController
 
     @user = User.new
 
-    render json: User.new
+    render json: @user.new
 
   end
 
   def create
 
     user = User.create user_params
-    render json: User.create
+    render json: user.create
   end
 
   def show
 
     @user = User.find params[:id]
-    render json: User.find params[:id]
+    render json: @user.find params[:id]
 
   end
 
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
     user = User.find params[:id]
 
     user.update user_params
-    render json: User.update
+    render json: user.update
 
   end
 
