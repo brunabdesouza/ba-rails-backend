@@ -6,17 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-print "Creating flights..."
-
-Flight.destroy_all
-
-flight1 = Flight.create! number: 27, origin: 'Sydney', destination: 'Melbourne'
-flight2 = Flight.create! number: 84, origin: 'Brisbane', destination: 'Adelaide'
-flight3 = Flight.create! number: 45, origin: 'Melbourne', destination: 'Tasmania'
-flight4 = Flight.create! number: 27, origin: 'Tasmania', destination: 'Sydney'
-
-puts "created #{Flight.count} flights."
-
 print "Creating airplanes..."
 
 Airplane.destroy_all
@@ -28,11 +17,21 @@ airplane4 = Airplane.create! name:'777', row: '4', column: 'D'
 
 puts "created #{Airplane.count} airplanes."
 
+print "Creating flights..."
 
-airplane1.flights << flight1
-airplane2.flights << flight2
-airplane3.flights << flight3
-airplane4.flights << flight4
+Flight.destroy_all
+
+flight1 = Flight.create! number: 27, origin: 'Sydney', destination: 'Melbourne', airplane_id: airplane1.id
+flight2 = Flight.create! number: 84, origin: 'Brisbane', destination: 'Adelaide', airplane_id: airplane2.id
+flight3 = Flight.create! number: 45, origin: 'Melbourne', destination: 'Tasmania', airplane_id: airplane3.id
+flight4 = Flight.create! number: 27, origin: 'Tasmania', destination: 'Sydney', airplane_id: airplane4.id
+
+puts "created #{Flight.count} flights."
+
+# airplane1.flights << flight1
+# airplane2.flights << flight2
+# airplane3.flights << flight3
+# airplane4.flights << flight4
 
 puts "Testing airplanes -< flights associations:"
 puts "The flight #{Flight.first.number} belongs to the airplane #{Airplane.first.name}"
@@ -48,10 +47,10 @@ user1 = User.create! name: 'Zara', email: 'zara@burned.com'
 
 puts "Created #{User.count} users."
 
-flight1.users << user1
-flight2.users << user2
-flight3.users << user3
-flight4.users << user4
+# flight1.users << user1
+# flight2.users << user2
+# flight3.users << user3
+# flight4.users << user4
 
 
 print "Creating reservations... "
