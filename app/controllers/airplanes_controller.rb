@@ -7,7 +7,7 @@ class AirplanesController < ApplicationController
     render json: airplane
   end
 
-  def show
+  def index
     render json: Airplane.all
   end
 
