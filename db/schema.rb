@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 2021_01_05_083320) do
 
   create_table "airplanes", force: :cascade do |t|
     t.text "name"
-    t.string "row"
-    t.string "column"
+    t.integer "rows"
+    t.integer "columns"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 2021_01_05_083320) do
     t.text "origin"
     t.text "destination"
     t.datetime "date"
-    t.string "plane"
     t.integer "airplane_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

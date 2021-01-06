@@ -16,10 +16,10 @@ print "Creating airplanes..."
 
 Airplane.destroy_all
 
-airplane1 = Airplane.create! name:'A380', row: '1', column:'A'
-airplane2 = Airplane.create! name:'737', row: '2', column: 'B'
-airplane3 = Airplane.create! name:'747-8', row: '3', column: 'C'
-airplane4 = Airplane.create! name:'777', row: '4', column: 'D'
+airplane1 = Airplane.create! name:'A380', rows: 40, columns: 10
+airplane2 = Airplane.create! name:'737', rows: 30, columns: 6
+airplane3 = Airplane.create! name:'747-8', rows: 35, columns: 10
+airplane4 = Airplane.create! name:'777', rows: 28, columns: 9
 
 puts "created #{Airplane.count} airplanes."
 
