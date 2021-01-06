@@ -1,32 +1,22 @@
 class AirplanesController < ApplicationController
 
+  skip_before_action :verify_authenticity_token, raise: false
+
   def create
-
-    headers['Access-Control-Allow-Origin'] = '*'
-
     airplane = Airplane.create airplane_params
     render json: airplane
-
   end
 
   def show
-
-    headers['Access-Control-Allow-Origin'] = '*'
-
     render json: Airplane.all
-
   end
-
-
-
-
 
   private
 
 
   def airplane_params
 
-    params.require(:airplane).permit(:name, :row, :column)
+    params.require(:airplane).permit(:name, :rows, :columns)
 
   end
 
