@@ -1,11 +1,15 @@
 class FlightsController < ApplicationController
 
+  skip_before_action :verify_authenticity_token, raise: false
+
   def new
     # Do we need this for a react frontend
   end
 
   def create
     flight = Flight.create flight_params
+
+    render json: flight
   end
 
   def index
