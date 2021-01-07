@@ -27,10 +27,10 @@ print "Creating flights..."
 
 Flight.destroy_all
 
-flight1 = Flight.create! number: 27, origin: 'Sydney', destination: 'Melbourne', date: DateTime.strp-time('09/14/2021'), airplane_id: airplane1.id
-flight2 = Flight.create! number: 84, origin: 'Brisbane', destination: 'Adelaide', airplane_id: airplane2.id
-flight3 = Flight.create! number: 45, origin: 'Melbourne', destination: 'Tasmania', airplane_id: airplane3.id
-flight4 = Flight.create! number: 27, origin: 'Tasmania', destination: 'Sydney', airplane_id: airplane4.id
+flight1 = Flight.create! number: 27, origin: 'Sydney', destination: 'Melbourne', date: 2021_05_12, airplane_id: airplane1.id
+flight2 = Flight.create! number: 84, origin: 'Brisbane', destination: 'Adelaide', date: 2021_06_30, airplane_id: airplane2.id
+flight3 = Flight.create! number: 45, origin: 'Melbourne', destination: 'Tasmania', date: 2022_01_15, airplane_id: airplane3.id
+flight4 = Flight.create! number: 27, origin: 'Tasmania', destination: 'Sydney', date: 2021_09_25, airplane_id: airplane4.id
 
 puts "created #{Flight.count} flights."
 
